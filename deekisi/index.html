@@ -1,13 +1,71 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        .product {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px;
+            width: 300px;
+            text-align: center;
+        }
+        .product h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .product p {
+            font-size: 1em;
+            color: #555;
+        }
+        .price, .total-price {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .quantity-input {
+            width: 50px;
+            text-align: center;
+        }
+        .buy-now {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="product">
+    <h2>Sample Product</h2>
+    <p>Rs. <span class="price">15</span></p>
+    <p>This is a short description of the product.</p>
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" class="quantity-input" value="1" min="1" onchange="updateTotalPrice()">
+    <p>Total Price: Rs. <span class="total-price">15</span></p>
+    <button class="buy-now">Buy Now</button>
+</div>
+
+<script>
+    function updateTotalPrice() {
+        const price = 15;
+        const quantity = document.getElementById('quantity').value;
+        const totalPrice = price * quantity;
+        document.querySelector('.total-price').textContent = totalPrice;
+    }
+</script>
+
+</body>
 </html>
